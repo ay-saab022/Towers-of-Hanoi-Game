@@ -46,11 +46,8 @@ python3 hanoi-game.py
 /towers-of-hanoi/
 │
 ├── stack.py        # Stack class used to manage each tower
-|
 ├── node.py         # Node class used by the Stack (if Stack is linked list-based)
-|
 ├── hanoi_game.py   # Main game logic (the file you run)
-|
 ├── README.md       # This file
 
 🚀 Future Plans
