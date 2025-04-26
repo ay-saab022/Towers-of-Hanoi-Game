@@ -46,6 +46,7 @@ python3 hanoi-game.py
 ├── README.md       # This file
 
 🚀 Future Plans
+
 Build a web-based version using JavaScript and HTML.
 
 Add animations and drag-and-drop functionality for disks.
