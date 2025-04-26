@@ -12,10 +12,15 @@ stacks += [left_stack, middle_stack, right_stack]
 
 
 #Setting up the Game
-num_disks = int(input("\nHow many disks do you want to play with?\n"))
-
-while num_disks < 3:
-  num_disks = int(input("Enter a number greater than or equal to 3\n"))
+while True:
+    try:
+        num_disks = int(input("\nHow many disks do you want to play with?\n"))
+        if num_disks >= 3:
+            break
+        else:
+            print("Enter a number greater than or equal to 3")
+    except ValueError:
+        print("Please enter a valid integer.")
 
 for disk in range(num_disks, 0, -1):
   left_stack.push(disk)
@@ -26,6 +31,8 @@ print("\nThe fastest you can solve this game is in {0} moves".format(num_optimal
 
 #Getting User Input
 
+#Function to get user input for stack selection
+
 def get_input():
   choices = [stack.get_name()[0] for stack in stacks]
   while True:
@@ -33,6 +40,7 @@ def get_input():
       name = stacks[i].get_name()
       letter = choices[i]
       print("Enter {0} for {1}".format(letter, name))
+  
   
     user_input = input("")
     if user_input in choices:
@@ -51,11 +59,12 @@ while right_stack.get_size() != num_disks:
   while True:
     print("\nWhich stack do you want to move from?\n")
     from_stack = get_input()
+
     print("\nWhich stack do you want to move to?\n")
     to_stack = get_input()
 
     if from_stack.get_size() == 0:
-      print("\n\nInvalid Move. Try Again")
+      print("\n\nInvalid Move: The stack you are trying to move from is empty. Try Again.")
     elif to_stack.get_size() == 0 or from_stack.peek() < to_stack.peek():
       disk = from_stack.pop()
       to_stack.push(disk)
